@@ -1,0 +1,91 @@
+import type { ContentBundleItem, ContentBundlePack, ContentBundleSummary } from './contentBundleTypes';
+
+export const starterContentBundleItems: ContentBundleItem[] = [
+  {
+    id: 'media-item-001',
+    title: 'Replay Sample',
+    subtitle: 'Replay card with price and status display.',
+    kind: 'replay',
+    accessStatus: 'locked',
+    visibility: 'members-only',
+    priceCredits: 35,
+    originalPriceCredits: 45,
+    durationMinutes: 22,
+    unlockCount: 48,
+    previewLabel: '▶️',
+    tags: ['replay', 'featured'],
+    description: 'A replay item for previewing card states, pricing, and bundle value.',
+  },
+  {
+    id: 'media-item-002',
+    title: 'Gallery Sample',
+    subtitle: 'Gallery item included in a bundle.',
+    kind: 'gallery',
+    accessStatus: 'included',
+    visibility: 'vip-only',
+    priceCredits: 0,
+    originalPriceCredits: 25,
+    unlockCount: 84,
+    previewLabel: '🖼️',
+    tags: ['gallery', 'included'],
+    description: 'An included gallery item for previewing bundle composition.',
+  },
+  {
+    id: 'media-item-003',
+    title: 'Audio Sample',
+    subtitle: 'Audio item with timed status.',
+    kind: 'audio',
+    accessStatus: 'timed-access',
+    visibility: 'private-link',
+    priceCredits: 18,
+    durationMinutes: 5,
+    unlockCount: 19,
+    expiresAt: '2026-06-30T23:59:59.000Z',
+    previewLabel: '🎧',
+    tags: ['audio', 'timed'],
+    description: 'A short audio item for showing timed-state metadata.',
+  },
+  {
+    id: 'media-item-004',
+    title: 'Guide Sample',
+    subtitle: 'Document item for bonus material.',
+    kind: 'document',
+    accessStatus: 'unlocked',
+    visibility: 'creator-preview',
+    priceCredits: 10,
+    unlockCount: 11,
+    previewLabel: '📄',
+    tags: ['document', 'bonus'],
+    description: 'A document item for showing unlocked and preview states.',
+  },
+];
+
+export const starterContentBundlePack: ContentBundlePack = {
+  id: 'starter-content-bundle',
+  title: 'Content Bundle',
+  subtitle: 'Bundle card for grouped media items.',
+  description: 'Preview pricing, item states, bundle value, and publish-readiness.',
+  priceCredits: 79,
+  visibility: 'members-only',
+  items: starterContentBundleItems,
+  checklist: [
+    { id: 'cover', label: 'Cover checked', complete: true },
+    { id: 'pricing', label: 'Price reviewed', complete: true },
+    { id: 'visibility', label: 'Visibility selected', complete: true },
+    { id: 'items', label: 'Items attached', complete: true },
+    { id: 'timing', label: 'Timed items reviewed', complete: false },
+  ],
+};
+
+export function buildContentBundleSummary(pack: ContentBundlePack): ContentBundleSummary {
+  return {
+    totalItems: pack.items.length,
+    lockedItems: pack.items.filter((item) => item.accessStatus === 'locked').length,
+    unlockedItems: pack.items.filter((item) => item.accessStatus === 'unlocked' || item.accessStatus === 'included').length,
+    timedAccessItems: pack.items.filter((item) => item.accessStatus === 'timed-access').length,
+    totalUnlocks: pack.items.reduce((sum, item) => sum + item.unlockCount, 0),
+    totalBundleValue: pack.items.reduce((sum, item) => sum + Number(item.originalPriceCredits || item.priceCredits || 0), 0),
+    checklistComplete: pack.checklist.filter((item) => item.complete).length,
+    checklistTotal: pack.checklist.length,
+  };
+}

@@ -1,0 +1,12 @@
+.blogger-ui {
+    background: #000;
+    padding: 30px;
+    max-width: 700px;
+    margin: 20px auto;
+    border: 1px solid #0088ff;
+    border-radius: 15px;
+}
+.blogger-ui textarea:focus,
+.blogger-ui input:focus {
+    outline: 1px solid #0088ff;
+}
