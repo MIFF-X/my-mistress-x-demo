@@ -1,0 +1,65 @@
+.wheel-plugin-container {
+  color: white;
+  padding: 30px;
+  text-align: center;
+}
+
+.wheel-plugin-container h2 {
+  color: #ff8800;
+}
+
+.wheel-price-line {
+  color: #bdbdbd;
+}
+
+#status-display {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+  min-height: 50px;
+  margin: 20px 0;
+}
+
+#status-display.is-result {
+  color: #ff8800;
+}
+
+#visual-wheel {
+  background: conic-gradient(#ff4444 0% 16%, #222 16% 33%, #ff8800 33% 50%, #222 50% 66%, #ff4444 66% 83%, #222 83% 100%);
+  border: 5px solid #444;
+  border-radius: 50%;
+  height: 250px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  width: 250px;
+}
+
+#wheel-pointer {
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 30px solid #ffffff;
+  height: 0;
+  left: 50%;
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  width: 0;
+  z-index: 10;
+}
+
+#spin-btn {
+  background: #ff8800;
+  border: none;
+  border-radius: 30px;
+  color: #000000;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 30px;
+  padding: 15px 40px;
+}
+
+#spin-btn:disabled {
+  cursor: wait;
+  opacity: 0.75;
+}

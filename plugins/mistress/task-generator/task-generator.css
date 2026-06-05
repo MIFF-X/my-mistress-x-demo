@@ -1,0 +1,9 @@
+.task-gen-container {
+    background: #000;
+    border: 1px solid #00ffaa;
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 550px;
+    margin: 20px auto;
+    color: white;
+}

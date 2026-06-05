@@ -1,0 +1,120 @@
+/* frontend/plugins/voice-calls-ppm/voice-call.css */
+
+/* === Global Theme Colors === */
+:root {
+    --mx-accent: #ff4444;
+    --mx-accent-hover: #ff6666;
+    --mx-bg-dark: #0a0a0a;
+    --mx-bg-panel: #151515;
+    --mx-text-primary: #ffffff;
+    --mx-text-secondary: #aaaaaa;
+    --mx-glow-green: #00ff66;
+    --mx-glow-red: #ff4444;
+}
+
+/* === Wrapper for Full-Screen Overlay === */
+.ppm-voice-ui {
+    background: radial-gradient(circle, #111, #000);
+    color: var(--mx-text-primary);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    border: 2px solid var(--mx-accent);
+    max-width: 500px;
+    margin: 50px auto;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+/* === Scanline Animation Effect === */
+.ppm-voice-ui::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 4px;
+    background: var(--mx-accent);
+    box-shadow: 0 0 10px var(--mx-accent);
+    animation: scan 2s linear infinite;
+    z-index: 1;
+}
+@keyframes scan {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* === Timer Glow Effect === */
+#ppm-timer {
+    font-size: 48px;
+    font-family: monospace;
+    color: var(--mx-glow-green);
+    text-shadow: 0 0 15px rgba(0, 255, 102, 0.6);
+    margin: 20px 0;
+}
+
+/* === Cost Display === */
+#ppm-cost {
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* === Multiplier Tag (Normal/Punish) === */
+#ppm-multiplier-tag {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+/* === Button Styles === */
+#btn-punish {
+    background: #440000;
+    border: none;
+    color: #ff8888;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+}
+#btn-punish:hover {
+    background: var(--mx-accent);
+    color: white;
+    box-shadow: 0 0 15px var(--mx-accent);
+}
+#btn-mercy {
+    background: #333;
+    border: none;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+}
+#btn-end-call {
+    background: var(--mx-accent);
+    width: 100%;
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 20px;
+}
+#btn-end-call:hover {
+    background: var(--mx-accent-hover);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+}
+
+/* === Pulse Animation for Punish Mode === */
+.pulse-effect {
+    animation: pulseRed 1s infinite;
+}
+@keyframes pulseRed {
+    0% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 0, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
+}

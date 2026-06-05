@@ -1,0 +1,68 @@
+.plugin-ppv-manager {
+  color: white;
+}
+
+.ppv-manager-panel,
+.ppv-item-card {
+  background: #1b1b1b;
+  border: 1px solid #343434;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.ppv-manager-panel {
+  display: grid;
+  gap: 12px;
+}
+
+.ppv-manager-panel label,
+.ppv-manager-field {
+  display: grid;
+  gap: 6px;
+}
+
+.ppv-manager-panel input,
+.ppv-manager-panel select {
+  width: 100%;
+}
+
+.ppv-item-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.ppv-item-card {
+  display: grid;
+  gap: 12px;
+}
+
+.ppv-item-thumb {
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(135deg, #111, #302020);
+  background-position: center;
+  background-size: cover;
+  border-radius: 8px;
+}
+
+.ppv-item-body h4 {
+  margin: 0 0 6px;
+}
+
+.ppv-item-body p {
+  color: #cfcfcf;
+  margin: 0;
+}
+
+.ppv-item-meta {
+  color: #f6c15f;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 13px;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.ppv-item-unlock {
+  justify-self: start;
+}

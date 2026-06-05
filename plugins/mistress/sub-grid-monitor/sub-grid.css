@@ -1,0 +1,13 @@
+.sub-grid-container {
+    background: #000;
+    padding: 30px;
+    max-width: 900px;
+    margin: 20px auto;
+    border: 2px solid #ff4444;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.2);
+}
+.sub-card:hover {
+    border-color: #ff4444;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+}
