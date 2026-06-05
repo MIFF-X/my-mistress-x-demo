@@ -1,67 +1,37 @@
-<!doctype html>
-<html lang="en" data-theme="dark">
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#08070d" />
-    <title>Mistress-X</title>
-
-    <link rel="icon" href="./assets/favicon/favicon.svg" type="image/svg+xml" />
-    <link rel="manifest" href="./assets/favicon/site.webmanifest" />
-    <link rel="stylesheet" href="./styles/base.css" />
-    <link rel="stylesheet" href="./styles/dashboard/dashboard.css" />
-    <link rel="stylesheet" href="./plugins/shared/communication/chat/chat.css" />
-    <link rel="stylesheet" href="./plugins/shared/communication/voice-calls-ppm/voice-call.css" />
-    <link rel="stylesheet" href="./plugins/mistress/sub-grid-monitor/sub-grid.css" />
-    <link rel="stylesheet" href="./plugins/mistress/blogger-manager/blogger.css" />
-    <link rel="stylesheet" href="./plugins/mistress/live-webcam-grid/live-webcam-grid.css" />
-
-    <style>
+    <meta charset="utf-8" />
+    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>MY MISTRESS X</title>
+    <!-- The `react-native-web` recommended style reset: https://necolas.github.io/react-native-web/docs/setup/#root-element -->
+    <style id="expo-reset">
+      /* These styles make the body full-height */
+      html,
       body {
-        background: #05080f;
-        color: #fff;
-        margin: 0;
-        font-family: Inter, Arial, sans-serif;
-        min-height: 100vh;
+        height: 100%;
       }
-
-      #app {
-        margin: 0;
-        min-height: 100vh;
+      /* These styles disable body scrolling if you are using <ScrollView> */
+      body {
+        overflow: hidden;
       }
-
-      .error-box {
-        margin: 20px;
-        padding: 20px;
-        border: 1px solid #ff4444;
-        background: rgba(42, 15, 16, 0.9);
-        color: #ffd7d8;
-        border-radius: 12px;
-        white-space: pre-wrap;
-        font-family: monospace;
-        box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+      /* These styles make the root element full-height */
+      #root {
+        display: flex;
+        height: 100%;
+        flex: 1;
       }
     </style>
   </head>
+
   <body>
-    <div id="app" aria-live="polite"></div>
-    <div id="error-root"></div>
-
-    <script type="module">
-      const errorRoot = document.getElementById("error-root");
-
-      try {
-        await import("./index.js");
-        console.log("Mistress-X app booted successfully.");
-      } catch (err) {
-        console.error("Critical Boot Error:", err);
-        errorRoot.innerHTML = `
-          <div class="error-box">
-            <h3 style="margin-top:0; color:#ff4444;">System Boot Failure</h3>
-            <p><strong>Message:</strong> ${err?.message || err}</p>
-            <p style="font-size:12px; color:#888;">Check frontend/index.js and imported feature paths.</p>
-          </div>`;
-      }
-    </script>
-  </body>
+    <!-- Use static rendering with Expo Router to support running without JavaScript. -->
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <!-- The root element for your Expo app. -->
+    <div id="root"></div>
+  <script src="/_expo/static/js/web/index-4df552adbd4c657c9c609e8381663fb4.js" defer></script>
+</body>
 </html>

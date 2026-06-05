@@ -1,2 +1,0 @@
-// Legacy compatibility shim. Canonical path: frontend/plugins/site/monetization/hub/hub-ui.jsx
-export * from "../monetization/hub/hub-ui.jsx";
